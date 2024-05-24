@@ -39,12 +39,18 @@ public class ModifyControl implements Control {
 		svo.setSearchCondition(sc);
 		BoardService svc = new BoardServiceImpl();
 		req.setAttribute("bno", vo);
+		req.setAttribute("boardTitle", title);
+		req.setAttribute("boardContent", content);
+		req.setAttribute("page", page);
+		req.setAttribute("searchCondition", sc);
+		req.setAttribute("keyword", kw);
 		
 		String encodekw = URLEncoder.encode(kw, "utf-8"); //한글 encoding 처리
-				
+		
 		if(svc.modifyBoard(vo)){
 			System.out.println("수정성공");
-			resp.sendRedirect("modBoardForm.do?page="+ page +"&searchCondition=" + sc + "&keyword" + encodekw);
+			resp.sendRedirect("boardList.do");
+		
 		}else {
 			System.out.println("수정실패");
 		}

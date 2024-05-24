@@ -9,7 +9,7 @@ import com.yedam.common.SearchVO;
 public interface BoardService {
 	
 	List<BoardVO> boardList(SearchVO search);//목록
-	
+
 	int getTotal(SearchVO search); //전체건수
 
 	boolean addBoard(BoardVO vo);
@@ -19,5 +19,6 @@ public interface BoardService {
 	boolean modifyBoard(BoardVO board);
 	//삭제
 	boolean delBoard(BoardVO board);
+
 
 }

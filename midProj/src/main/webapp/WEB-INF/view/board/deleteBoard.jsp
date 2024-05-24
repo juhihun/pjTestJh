@@ -31,20 +31,21 @@
 
 	</table>
 	<button type="submit" class="btn btn-danger">확인</button>
-	<input type="hidden" name="bno" value="${bno.boardNo }">
+	<input type="hidden" name="bno" value="${bno.boardNo }"> 
+	
 </form>
-<script>
-const logid = "${logId }";
-// const writer = "${bno.writer }";
+<!-- <script> -->
+<%-- //const logid = "${logId }"; --%>
+<%-- // const writer = "${bno.writer }"; --%>
 
-document.forms.myFrm.addEventListener('submit',function(e){
+<!-- //document.forms.myFrm.addEventListener('submit',function(e){ -->
 	
-	e.preventDefault();
-// 	if(logid != writer){
-// 		alert("권한이 없습니다");
-		return;
-		 this.submit();
+<!-- //	e.preventDefault(); -->
+<!-- // 	if(logid != writer){ -->
+<!-- // 		alert("권한이 없습니다"); -->
+<!-- 		return; -->
+<!-- 		 this.submit(); -->
 	
-});
+<!-- }); -->
 
-</script>
+<!-- </script> -->

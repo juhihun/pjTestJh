@@ -3,17 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yedam.mapper.BoardMapper">
+
+  <!--     select * from tbl_boards2 -->
+  <!--     order by board_no -->
   <select id="boardList" resultType="com.yedam.VO.BoardVO">
-    select * from tbl_boards2
-   
-    order by board_no
+     select b.board_no
+           ,b.member_id
+           ,b.product_code2
+           ,b.category
+           ,b.board_title
+           ,b.board_content
+           ,b.board_date
+           ,b.board_pw
+           ,b.board_views
+           ,8 as "reply_cnt"
+     from tbl_boards2 b
   </select>
   
+
 
 	<select id="boardListPaging" parameterType="com.yedam.common.SearchVO">
 		select r.*
 		from( select rownum rn, a.*
-			from (select *
+			from (select b.*, (select count(1) from tbl_replyes2 r where r.board_no = b.board_no) as "reply_cnt"
 				from tbl_boards2 b
 				where 
 				<choose>

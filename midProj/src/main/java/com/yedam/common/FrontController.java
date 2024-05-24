@@ -31,14 +31,14 @@ public class FrontController extends HttpServlet {
       map.put("/modBoardForm.do", new ModBoardFormControl()); // 수정화면
       map.put("/updateBoard.do", new ModifyControl()); // 수정
      // 삭제관련
-      map.put("/removeBoardForm.do", new RemoveFormControl());
+      map.put("/deleteBoardForm.do", new RemoveFormControl());
       map.put("/deleteBoard.do",new RemoveControl());
 
-//      // 댓글관련
-//      map.put("/replyList.do", new ReplyListControl());// 댓글보기
-//      map.put("/removeReply.do", new RemoveReplyControl());// 댓글삭제
-//      map.put("/addReply.do", new AddReplyControl()); // 댓글작성
-//      map.put("/getTotalCnt.do", new TotalCountControl()); // 댓글작성
+    // 댓글관련
+      map.put("/replyList.do", new ReplyListControl());// 댓글보기
+      map.put("/removeReply.do", new RemoveReplyControl());// 댓글삭제
+      map.put("/addReply.do", new AddReplyControl()); // 댓글작성
+      map.put("/getTotalCnt.do", new TotalCountControl()); // 댓글작성
 //      map.put("/updateReply.do", new UpdateControl()); // 댓글작성
  
    }

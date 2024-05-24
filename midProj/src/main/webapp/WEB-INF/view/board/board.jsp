@@ -63,7 +63,7 @@ div.reply span {
 			</tr>
 			<tr align="center">
 				<td colspan="4">
-				<button class="btn btn-danger">삭제</button>
+				<button class="btn btn-danger" id="delBtn">삭제</button>
 				<button class="btn btn-primary" id="modBtn">수정</button>
 				</td>
 			</tr>
@@ -78,23 +78,14 @@ div.reply span {
 </div>
 	<div class = "content">
 		<ul>
-			<li>
-				<span class = "col-sm-2">글번호</span>
-				<span class = "col-sm-5">댓글내용</span>
-				<span class = "col-sm-2">작성자</span>
-				<span class = "col-sm-2">삭제</span>
-			</li>
-			<li>
-				<hr/>
-			</li>
 			<li style ="display : none;">
 				<span class = "col-sm-2">2</span>
-				<span class = "col-sm-5">3</span>
+				<span class = "col-sm-2">3</span>
 				<span class = "col-sm-2">user02</span>
-				<span class = "col-sm-2"><button onclick="deleteRow(event)" class = "btn btn-warning">삭제</button></span>
+				<span class = "col-sm-1"><button onclick="updateRow(event)" class = "btn btn-warning">수정</button></span>
+				<span class = "col-sm-1"><button onclick="deleteRow(event)" class = "btn btn-warning">삭제</button></span>
 			</li>
 		
-			
 		</ul>
 	<form>
 	<p>댓글달기</p>
@@ -102,15 +93,7 @@ div.reply span {
 	<button class = "col-sm-1" id = "addReply">확인</button>
 </form>
 	</div> <!-- content -->
-	<div class = "footer">
-		<div class="center">
-  			<div class="pagination">
-  			<a href = "#">1</a>
-  			<a href = "#" class = "active">2</a>
-  			<a href = "#">3</a>
-  			</div>
-  		</div>
-	</div>
+	
 </div> <!-- container -->
 
 <script>

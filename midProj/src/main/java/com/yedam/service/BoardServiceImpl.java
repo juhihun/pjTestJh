@@ -44,6 +44,12 @@ public class BoardServiceImpl implements BoardService{
 	public boolean delBoard(BoardVO board) {
 		return mapper.deleteBoard(board) == 1;
 	}
+
+
+	
+
+
+
 	
 	
 }

@@ -48,6 +48,7 @@
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회수</th>
+			<th>답변여부</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -60,7 +61,17 @@
 			<td>${board.memberId }</td>
 			<td><fmt:formatDate value ="${board.boardDate }" pattern="yyyy-MM-dd" /></td>
 			<td>${board.boardViews }</td>
-
+			<td>
+			<p>댓글수는 ${board.replyCnt }</p>
+			<c:choose>
+			<c:when test="${board.replyCnt != 0 }">
+			<p>답변완료</p>
+			</c:when>
+			<c:otherwise>
+			<p>답변대기</p>
+			</c:otherwise>
+			</c:choose>
+			</td>
 		</tr>
 	</c:forEach>
 	</tbody>

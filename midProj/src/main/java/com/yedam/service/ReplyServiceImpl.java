@@ -22,8 +22,8 @@ public class ReplyServiceImpl implements ReplyService{
 	}
 
 	@Override
-	public boolean removeReply(int replyno) {
-		return mapper.deleteReply(replyno) == 1;
+	public boolean removeReply(int replyNo) {
+		return mapper.deleteReply(replyNo) == 1;
 	}
 
 	@Override
@@ -31,11 +31,7 @@ public class ReplyServiceImpl implements ReplyService{
 		return mapper.insertReply(rvo) == 1;
 	}
 
-	@Override
-	public int getReplyCnt(int boardNo) {
-		
-		return mapper.replyCnt(boardNo);
-	}
+
 
 	@Override
 	public boolean updateReply(ReplyVO rvo) {

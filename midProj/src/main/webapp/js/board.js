@@ -9,7 +9,7 @@ document.querySelector('#modBtn').addEventListener('click', function() {
 
 
 //삭제버튼
-document.querySelector('.btn-danger').addEventListener('click', function() {
+document.querySelector('#delBtn').addEventListener('click', function() {
 	document.forms.myFrm.action = "delBoardForm.do"; //삭제화면 호출
 	document.forms.myFrm.submit();
 })
@@ -21,7 +21,7 @@ showList();
 function showList() {
 	//댓글목록 초기화
 	document.querySelectorAll('div.content ul li').forEach((li, idx) => {
-		if (idx >= 3) {
+		if (idx >= 1) {
 			li.remove();
 		}
 	})
@@ -43,7 +43,7 @@ function showList() {
 //삭제버튼 이벤트
 function deleteRow(e) {
 	const rno = e.target.parentElement.parentElement.dataset.rno; //숫자 가져오기
-	console.log(rno);
+	console.log("삭제는"+rno);
 	svc.removeReply(rno,
 		result => {
 			if (result.retCode == 'OK') {
@@ -61,7 +61,7 @@ function deleteRow(e) {
 //등록
 document.getElementById('addReply').addEventListener('click', function(e) {
 	let reply = document.getElementById('reply').value;
-	svc.addReply({ bno: bno, writer: writer, reply: reply },
+	svc.addReply({ bno: bno, memberId: memberId, replyContent: replyContent },
 		result => {
 			if (result.retCode == 'OK') {
 				const row = makeRow(result.retVal);
@@ -74,13 +74,13 @@ document.getElementById('addReply').addEventListener('click', function(e) {
 
 //row생성을 함수에 담은것
 function makeRow(reply = {}) {
-	let tmpl = document.querySelector('div.reply li:nth-of-type(3)').cloneNode(true);
+	let tmpl = document.querySelector('div.reply li:nth-of-type(1)').cloneNode(true);
 	console.log(tmpl);
 	tmpl.style.display = 'block';
 	tmpl.setAttribute('data-rno', reply.replyNo);
-	tmpl.querySelector('span:nth-of-type(1)').innerText = reply.replyNo;
-	tmpl.querySelector('span:nth-of-type(2)').innerText = reply.reply;
-	tmpl.querySelector('span:nth-of-type(3)').innerText = reply.replyer;
+	tmpl.querySelector('span:nth-of-type(1)').innerText = reply.memberId;
+	tmpl.querySelector('span:nth-of-type(2)').innerText = reply.replyDate;
+	tmpl.querySelector('span:nth-of-type(3)').innerText = reply.replyContent;
 	return tmpl;
 }
 

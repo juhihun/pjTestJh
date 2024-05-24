@@ -3,9 +3,9 @@
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<c:if test="${meassage != null}">
-	<p>${message }</p>
-</c:if>
+<%-- <c:if test="${meassage != null}"> --%>
+<%-- 	<p>${message }</p> --%>
+<%-- </c:if> --%>
 
 <form action="addBoard.do" method="post" enctype="multipart/form-data">
 	<table class="table">
@@ -22,11 +22,11 @@
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td><input type="text" name="title"></td>
+			<td><input type="text" name="boardTitle"></td>
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td><textarea name="content"></textarea></td>
+			<td><textarea name="boardContent"></textarea></td>
 		</tr>
 		<tr>
 			<th>파일</th>
@@ -36,5 +36,6 @@
 			<td colspan="2"><input type="submit"></td>
 	</table>
 </form>
+
 
 

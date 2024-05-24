@@ -18,4 +18,5 @@ public interface BoardMapper {
 	int updateBoard(BoardVO board); //수정처리
 	int deleteBoard(BoardVO board); //삭제
 
+
 }

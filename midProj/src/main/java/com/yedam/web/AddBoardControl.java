@@ -21,8 +21,7 @@ public class AddBoardControl implements Control {
 //		String memberId = req.getParameter("memberId");
 		String category = req.getParameter("selectCategory");
 		
-		String path = "WEB-INF/board/addBoard.jsp";
-		path = "board/addBoard.tiles";
+		String path = "board/addBoard.tiles";
 		BoardService svc = new BoardServiceImpl();
 		
 		req.getRequestDispatcher(path).forward(req, resp);
@@ -32,15 +31,20 @@ public class AddBoardControl implements Control {
 		vo.setBoardContent(content);
 //		vo.setMemberId(memberId);
 		vo.setCategory(category);
+		
+		System.out.println("제목"+title);
+		System.out.println("제목"+content);
+		System.out.println("제목"+category);
 	
 		
 		if(svc.addBoard(vo)){
 			System.out.println("등록성공");
 			resp.sendRedirect("boardList.do");
+			return;
+		
 		}else {
 			System.out.println("등록실패");
 		}
-
 	
 	}
 

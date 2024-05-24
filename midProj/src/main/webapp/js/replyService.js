@@ -15,15 +15,15 @@ const svc = {
 		fetch('addReply.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'bno=' + param.bno + '&replyer=' + param.writer + '&reply=' + param.reply
+			body: 'bno=' + param.bno + '&memberId=' + param.memberId + '&replyConntent=' + param.replyContent
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
 	// 댓글삭제 => 삭제할번호, 성공콜백, 실패콜백
-	removeReply(rno = 1, successCall, errorCall) {
-		fetch('removeReply.do?rno=' + rno)
+	removeReply(replyNo = 1, successCall, errorCall) {
+		fetch('removeReply.do?rno=' + replyNo)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
@@ -38,7 +38,7 @@ const svc = {
 	
 	updateReply(param = {}, successCall, errorCall) {
 		//fetch('updateReply.do?bno=' + param.bno + '&replyer=' + param.writer + '&reply=' + param.reply)
-		fetch('updateReply.do?rno='+param.rno+'&reply='+param.reply)
+		fetch('updateReply.do?rno='+param.rno+'&replyContent='+param.replyContent)
 //			method: 'post',
 //			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 //			body: 'rno=' + param.rno + '&reply=' + param.reply

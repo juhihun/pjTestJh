@@ -11,9 +11,8 @@ import com.yedam.common.SearchVO;
 public interface ReplyService {
 	//목록
 	List<ReplyVO> replyList(SearchVO search);
-	boolean removeReply(int replyno);
+	boolean removeReply(int replyNo);
 	boolean addReply(ReplyVO rvo);
-	int getReplyCnt(int boardNo); //댓글갯수
 
 	boolean updateReply(ReplyVO rvo);
 	
